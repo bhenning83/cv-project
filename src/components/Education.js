@@ -7,7 +7,7 @@ class Education extends Component {
 
   render = () => {
     return(
-      <div>
+      <div className='section' id='edu'>
         <h1>Henlo I am edu</h1>
       </div>
     )

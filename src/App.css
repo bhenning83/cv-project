@@ -5,6 +5,13 @@ nav ul {
 nav ul li {
   cursor: pointer;
 }
-.active {
+li.active {
   border-bottom: 2px solid blue;
+}
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
 }

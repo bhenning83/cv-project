@@ -7,7 +7,7 @@ class Personal extends Component {
 
   render = () => {
     return(
-      <div>
+      <div className='section active' id='pers'>
         <h1>Henlo I am personal</h1>
       </div>
     )

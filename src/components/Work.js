@@ -7,7 +7,7 @@ class Work extends Component {
 
   render = () => {
     return(
-      <div>
+      <div className='section' id='work'>
         <h1>Henlo I am work</h1>
       </div>
     )
