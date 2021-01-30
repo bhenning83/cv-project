@@ -1,29 +1,78 @@
 import React, { Component } from 'react';
+import ShowWork from './ShowWork'
 
 class Work extends Component {
   constructor() {
     super()
+    
+    this.state = {
+      stint: {
+        company: '',
+        position: '',
+        workFrom: '',
+        workTo: '',
+        tasks: '',
+        id: 0
+      },
+      stints: []
+    }
   }
 
   addWork = (e) => {
     e.preventDefault();
-    console.log('add another work')
+    this.setState({
+      stints: this.state.stints.concat(this.state.stint),
+      stint: {
+        company: '',
+        position: '',
+        workFrom: '',
+        workTo: '',
+        tasks: '',
+        id: this.state.stint.id + 1
+      }
+    })
+
+    //empty form fields
+    document.querySelector('#company').value = '';
+    document.querySelector('#position').value = '';
+    document.querySelector('#workFrom').value = '';
+    document.querySelector('#eduTo').value = '';
+    document.querySelector('#tasks').value = '';
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      stint: {
+        ...this.state.stint, [e.target.id]: e.target.value
+      }
+    })
+  }
+
+  removeWork = (id) => {
+    let filteredItems = this.state.stints.filter(function (stint) {
+      return (stint.id !== id);
+    });
+   
+    this.setState({
+      stints: filteredItems
+    });
   }
 
   render = () => {
     return(
       <div className='section' id='work'>
         <label htmlFor='company'>Company</label>
-        <input type='text' id='company'></input>
+        <input type='text' id='company' onChange={this.handleChange}></input>
         <label htmlFor='position'>Position</label>
-        <input type='text' id='position'></input>
+        <input type='text' id='position' onChange={this.handleChange}></input>
         <label htmlFor='workFrom'>From</label>
-        <input type='text' id='workFrom'></input>
+        <input type='text' id='workFrom' onChange={this.handleChange}></input>
         <label htmlFor='workTo'>To</label>
-        <input type='text' id='workTo'></input>
+        <input type='text' id='workTo' onChange={this.handleChange}></input>
         <label htmlFor='tasks'>Responsibilities</label>
-        <textarea id='tasks' form='form'></textarea>
+        <textarea id='tasks' form='form' onChange={this.handleChange}></textarea>
         <button onClick={this.addWork}>Add Another</button>
+        <ShowWork stints={this.state.stints} del={this.removeWork} />
       </div>
     )
   }

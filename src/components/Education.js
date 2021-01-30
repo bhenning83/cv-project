@@ -49,7 +49,6 @@ class Education extends Component {
   }
 
   removeEdu = (id) => {
-    console.log(id)
     let filteredItems = this.state.stints.filter(function (stint) {
       return (stint.id !== id);
     });
