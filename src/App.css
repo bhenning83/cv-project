@@ -13,4 +13,5 @@ li.active {
 }
 .section.active {
   display: flex;
+  flex-direction: column;
 }

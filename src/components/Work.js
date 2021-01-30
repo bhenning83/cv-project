@@ -5,6 +5,11 @@ class Work extends Component {
     super()
   }
 
+  addWork = (e) => {
+    e.preventDefault();
+    console.log('add another work')
+  }
+
   render = () => {
     return(
       <div className='section' id='work'>
@@ -18,6 +23,7 @@ class Work extends Component {
         <input type='text' id='workTo'></input>
         <label htmlFor='tasks'>Responsibilities</label>
         <textarea id='tasks' form='form'></textarea>
+        <button onClick={this.addWork}>Add Another</button>
       </div>
     )
   }
