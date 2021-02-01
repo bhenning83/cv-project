@@ -58,6 +58,13 @@ class Work extends Component {
     });
   }
 
+  //sends entry data to Home
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state != prevState) {
+      this.props.save(this.state, 2);
+    }
+  }
+
   render = () => {
     return(
       <div className='section' id='work'>

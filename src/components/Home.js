@@ -7,6 +7,13 @@ class Home extends Component {
   constructor() {
     super()
 
+    this.state = {
+      pers: {},
+      edu: {},
+      work: {}
+    }
+
+    this.test = this.test.bind(this);
     this.clear = this.clear.bind(this);
   }
 
@@ -19,7 +26,7 @@ class Home extends Component {
     secs.forEach(sec => {sec.classList.remove('active')})
   }
   
-  showPers = (e) => {
+  renderPers = (e) => {
     this.clear(e);
     e.target.className='active';
 
@@ -28,7 +35,7 @@ class Home extends Component {
     return 
   }
 
-  showEdu = (e) => {
+  renderEdu = (e) => {
     this.clear(e);
     e.target.className='active';
 
@@ -36,7 +43,7 @@ class Home extends Component {
     document.querySelector('#edu').classList.add('active');
   }
 
-  showWork = (e) => {
+  renderWork = (e) => {
     this.clear(e);
     e.target.className='active';
 
@@ -44,21 +51,40 @@ class Home extends Component {
     document.querySelector('#work').classList.add('active');
   }
 
+  save = (items, idx) => {
+    switch (idx) {
+      case 0:
+        this.setState({ pers: items })
+        break;
+      case 1:
+        this.setState({ edu: items })
+        break;
+      case 2:
+        this.setState({ work: items })
+        break;
+    }
+  }
+  
+  test = (e) => {
+    e.preventDefault();
+    console.log(this.state)
+  }
+
   render = () => {
     return (
       <div>
         <nav>
           <ul>
-            <li onClick={this.showPers} className='active'>Personal</li>
-            <li onClick={this.showEdu}>Education</li>
-            <li onClick={this.showWork}>Work</li>
+            <li onClick={this.renderPers} className='active'>Personal</li>
+            <li onClick={this.renderEdu}>Education</li>
+            <li onClick={this.renderWork}>Work</li>
           </ul>
         </nav>
-        <form id='form'>
-        <Personal />
-        <Education />
-        <Work />
-        <button type='submit'>Submit</button>
+        <form id='form' onSubmit={this.test}>
+          <Personal save={this.save} />
+          <Education save={this.save}/>
+          <Work save={this.save}/>
+          <button type='submit'>Submit</button>
         </form>
       </div>
     )

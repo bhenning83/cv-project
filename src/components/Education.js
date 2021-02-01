@@ -58,6 +58,12 @@ class Education extends Component {
     });
   }
 
+  //sends entry data to Home
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state != prevState) {
+      this.props.save(this.state, 1);
+    }
+  }
 
   render = () => {
     return(

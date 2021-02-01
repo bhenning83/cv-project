@@ -15,9 +15,15 @@ class Personal extends Component {
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
-    })
+    });
   }
 
+  //sends entry data to Home
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state != prevState) {
+      this.props.save(this.state, 0);
+    }
+  }
 
   render = () => {
     return(
