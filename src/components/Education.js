@@ -60,7 +60,7 @@ class Education extends Component {
 
   //sends entry data to Home
   componentDidUpdate = (prevProps, prevState) => {
-    if (this.state != prevState) {
+    if (this.state !== prevState) {
       this.props.save(this.state, 1);
     }
   }
@@ -71,15 +71,15 @@ class Education extends Component {
         <label htmlFor='school'>School</label>
         <input type='text' id='school' onChange={this.handleChange}></input>
         <label htmlFor='degree'>Degree:</label>
-        <select name='degree' id='degree' onChange={this.handleChange}>
+        <select id='degree' onChange={this.handleChange}>
           <option value='' hidden> 
           Select an Option 
           </option>
-          <option value='none'>None</option>
-          <option value='ass'>Associate's</option>
-          <option value='bach'>Bachelor's</option>
-          <option value='masters'>Master's</option>
-          <option value='doctor'>Doctorate</option>
+          <option value='None'>None</option>
+          <option value="Associate's">Associate's</option>
+          <option value="Bachelor's">Bachelor's</option>
+          <option value="Master's">Master's</option>
+          <option value="Doctorate">Doctorate</option>
         </select>
         <label htmlFor='study'>Area of Study</label>
         <input type='text' id='study' onChange={this.handleChange}></input>
@@ -87,7 +87,7 @@ class Education extends Component {
         <input type='year' id='eduFrom' placeholder='yyyy' onChange={this.handleChange}></input>
         <label htmlFor='eduTo'>From</label>
         <input type='year' id='eduTo' placeholder='yyyy' onChange={this.handleChange}></input>
-        <button onClick={this.addEdu}>Add</button>
+        <button onClick={this.addEdu} className='add-btn'>Add</button>
         <ShowEdu stints={this.state.stints} del={this.removeEdu} />
       </div>
     )

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ShowWork from './ShowWork'
 
+//NEED TO MAKE IT SO YOU CAN'T ADD WORK AND EDU UNTIL IT'S COMPLETELY FILLED OUT
+
 class Work extends Component {
   constructor() {
     super()
@@ -60,7 +62,7 @@ class Work extends Component {
 
   //sends entry data to Home
   componentDidUpdate = (prevProps, prevState) => {
-    if (this.state != prevState) {
+    if (this.state !== prevState) {
       this.props.save(this.state, 2);
     }
   }
@@ -78,7 +80,7 @@ class Work extends Component {
         <input type='text' id='workTo' onChange={this.handleChange}></input>
         <label htmlFor='tasks'>Responsibilities</label>
         <textarea id='tasks' form='form' onChange={this.handleChange}></textarea>
-        <button onClick={this.addWork}>Add Another</button>
+        <button onClick={this.addWork} className='add-btn'>Add</button>
         <ShowWork stints={this.state.stints} del={this.removeWork} />
       </div>
     )

@@ -10,7 +10,9 @@ class Header extends Component {
 
   render = () => {
     return(
-      <h1>CV Builder</h1>
+      <header>
+        <h1>CV Builder</h1>
+      </header>
     )
   }
 }

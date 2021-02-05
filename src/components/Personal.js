@@ -20,7 +20,7 @@ class Personal extends Component {
 
   //sends entry data to Home
   componentDidUpdate = (prevProps, prevState) => {
-    if (this.state != prevState) {
+    if (this.state !== prevState) {
       this.props.save(this.state, 0);
     }
   }

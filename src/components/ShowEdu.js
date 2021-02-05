@@ -6,24 +6,19 @@ const ShowEdu = (props) => {
 
 
   return (
-    <div>
+    <div className='stints'>
       {stints.map((stint) => {
         return (
-          <div key={uniqid()}>
+          <div key={uniqid()} className='display-box'>
             <div>
               {stint.school}
             </div>
+            <div className='years'>{stint.eduFrom}-{stint.eduTo}</div>
             <div>
-              {stint.degree}
+              <span>Degree: </span>{stint.degree}
             </div>
             <div>
-              {stint.study}
-            </div>
-            <div>
-              {stint.eduFrom}
-            </div>
-            <div>
-              {stint.eduTo}
+              <span>Area of Study: </span> {stint.study}
             </div>
             <button onClick={() => del(stint.id)}>X</button>
           </div>
