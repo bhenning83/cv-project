@@ -41,6 +41,16 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
 :root {
 --light-gray: hsla(230, 7%, 84%, 1);
 --blue-munsell: hsla(198, 37%, 46%, 1);
@@ -60,7 +70,11 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 100px;
+  font-size: 2.5rem;
+  color: var(--raisin-black);
+  margin-bottom: 20px;
+  background: hsla(352, 90%, 39%, 0.3);
 }
 .home-container {
   width: 60%;
@@ -156,9 +170,13 @@ label {
 .row {
   display: flex;
   margin-bottom: 10px;
+  justify-content: space-between;
+}
+.lead-info {
+  font-weight: 600;
 }
 .years {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-style: italic;
 }
 .display-box button {
@@ -168,11 +186,29 @@ label {
   border-radius: 5px;
   color: var(--snow);
 }
-button[type='submit'] {
-  background: var(--blue-munsell);
-  color: var(--snow);
+.submitBtn {
+  background: var(--light-gray);
+  color: gray;
   margin-top: 25px;
   width: 100%;
   font-size: 1.4rem;
   padding: 5px;
+}
+.submittable {
+  background: var(--blue-munsell);
+  color: var(--snow);
+  cursor: pointer;
+}
+.trans {
+  background-color: white;;
+}
+#cv {
+  width: 100%;
+}
+.sec-title {
+   font-size: 1.5rem;
+   border-bottom: 1px solid black;
+}
+.sec-title:last-of-type {
+  margin-top: 25px;
 }

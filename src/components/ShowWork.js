@@ -11,21 +11,14 @@ const ShowWork = (props) => {
         {stints.map((stint) => {
           return (
             <div key={uniqid()} className='display-box'>
-              <div className='row'>
-                <div>
-                  <span>Company: </span>{stint.company}
-                </div>
-                <div>
-                  <span>Position: </span>{stint.position}
-                </div>
+              <div className='lead-info'>
+                {stint.company}
               </div>
-              <div className='row'>
-                <div>
-                  From: {stint.workFrom}
-                </div>
-                <div>
-                  To: {stint.workTo}
-                </div>
+              <div>
+                Title: {stint.position}
+              </div>
+              <div className='years'>
+                {stint.workFrom}-{stint.workTo}
               </div>
               <div>
                 Responsibilites: {stint.tasks}

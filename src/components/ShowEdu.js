@@ -10,7 +10,7 @@ const ShowEdu = (props) => {
       {stints.map((stint) => {
         return (
           <div key={uniqid()} className='display-box'>
-            <div>
+            <div className='lead-info'>
               {stint.school}
             </div>
             <div className='years'>{stint.eduFrom}-{stint.eduTo}</div>

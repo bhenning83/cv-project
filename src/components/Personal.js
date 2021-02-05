@@ -33,8 +33,8 @@ class Personal extends Component {
         <label htmlFor='lastName'>Last Name</label>
         <input type='text' id='lastName' onChange={this.handleChange}></input>
         <label htmlFor='phone'>Phone</label>
-        <input type='tel' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' 
-        id='phone' placeholder='555-867-5309' onChange={this.handleChange}></input>
+        <input type='tel' id='phone' 
+          placeholder='555-867-5309' onChange={this.handleChange}></input>
         <label htmlFor='email'>Email</label>
         <input type='email' id='email' onChange={this.handleChange}></input>
       </div>

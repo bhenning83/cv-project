@@ -6,56 +6,49 @@ const ShowCV = (props) => {
   if (data.edu.stints && data.work.stints) {
     return (
       <div id='cv' className='show'>
-        <div>
-          {data.pers.firstName}
+        <div className='row'>
+          {data.pers.firstName} {data.pers.lastName} 
+          <div>
+            <div>
+              {data.pers.phone}
+            </div>
+            <div>
+              {data.pers.email}
+            </div>
+          </div>
         </div>
-        <div>
-          {data.pers.lastName}
-        </div>
-        <div>
-          {data.pers.phone}
-        </div>
-        <div>
-          {data.pers.email}
-        </div>
+        <h2 className='sec-title'>Education</h2>
         {data.edu.stints.map(stint => {
           return (
             <div key={uniqid()}>
-              <div>
+              <div className='lead-info'>
                 {stint.school}
               </div>
+              <div className='years'>{stint.eduFrom}-{stint.eduTo}</div>
               <div>
-                {stint.degree}
+                <span>Degree: </span>{stint.degree}
               </div>
               <div>
-                {stint.study}
-              </div>
-              <div>
-                {stint.eduFrom}
-              </div>
-              <div>
-                {stint.eduTo}
+                <span>Area of Study: </span> {stint.study}
               </div>
             </div>
           )
         })}
+        <h2 className='sec-title'>Work</h2>
         {data.work.stints.map(stint => {
           return (
             <div key={uniqid()}>
-              <div>
+              <div className='lead-info'>
                 {stint.company}
               </div>
               <div>
-                {stint.position}
+                Title: {stint.position}
+              </div>
+              <div className='years'>
+                {stint.workFrom}-{stint.workTo}
               </div>
               <div>
-                {stint.workFrom}
-              </div>
-              <div>
-                {stint.workTo}
-              </div>
-              <div>
-                {stint.tasks}
+                Responsibilites: {stint.tasks}
               </div>
             </div>
           )

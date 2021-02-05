@@ -75,19 +75,34 @@ class Home extends Component {
         break;
     }
   }
+
+  checkIfFilled = () => {
+    if (this.state.work.stints.length !== 0
+      && this.state.edu.stints.length !== 0
+      && this.state.pers.firstName !== ''
+      && this.state.pers.lastName !== ''
+      && this.state.pers.phone !== ''
+      && this.state.pers.email !== '') {
+        return true
+      }
+  }
   
   handleSubmit = (e) => {
     e.preventDefault();
+    const button = document.querySelector("button[type='submit']");
 
     //prevents submission if work and edu aren't added 
-    if (this.state.work.stints !== undefined
-    && this.state.edu.stints !== undefined) {
+    if (this.checkIfFilled() === true) {
       document.querySelector('#cv').classList.toggle('show');
+      document.querySelector('#cv').classList.toggle('display-box');
       document.querySelector('#formMeat').classList.toggle('show');
+      document.querySelector('nav').classList.toggle('show');
+      document.querySelector('form').classList.toggle('trans');
+      button.style.display = 'block';
       if (this.state.edit === true) {
-        document.querySelector("button[type='submit']").textContent = 'Edit';
+        button.textContent = 'Edit';
       } else {
-        document.querySelector("button[type='submit']").textContent = 'Submit';
+        button.textContent = 'Submit';
       }
       this.setState({
         edit: !this.state.edit
@@ -97,16 +112,9 @@ class Home extends Component {
     }
   }
 
-  addSubBtn = () => {
-    console.log(this.state.work.stints)
-    console.log(this.state.edu.stints)
-    if (this.state.work.stints.length !== 0
-        && this.state.edu.stints.length !== 0
-        && this.state.pers.firstName !== ''
-        && this.state.pers.lastName !== ''
-        && this.state.pers.phone !== ''
-        && this.state.pers.email !== '') {
-        return(<button type='submit'>Submit</button>)
+  allowSubmit = () => {
+    if (this.checkIfFilled() === true) {
+      document.querySelector('button[type="submit"]').classList.add('submittable');
     }
   }
 
@@ -126,8 +134,9 @@ class Home extends Component {
             <Education save={this.save}/>
             <Work save={this.save}/>
           </div>
+        <button type='submit' className='submitBtn'>Submit</button>
         </form>
-        {this.addSubBtn()}
+        {this.allowSubmit()}
         <ShowCV data={this.state} />
       </div>
     )
