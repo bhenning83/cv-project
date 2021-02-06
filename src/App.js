@@ -1,4 +1,5 @@
-import './App.css';
+import './styles/reset.css'
+import './styles/App.css';
 import Home from './components/Home'
 import Header from './components/Header'
 
